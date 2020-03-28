@@ -5,6 +5,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import {history} from 'helpers/history';
+import {authenticationService} from "./services/authentication.service";
+import {PrivateRoute} from "./components/PrivateRoute";
 import './App.css';
 
 function App() {
