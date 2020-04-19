@@ -6,59 +6,39 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import {HomePage} from "./components/home-page";
+import {SamplePage} from "./components/sample-page";
+import {GoatPage} from "./components/goat-page";
 
-function App() {
-  return (
-      <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav>
+class App extends React.Component {
 
-          {/* A <Switch> looks through its children <Route>s and
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+        <Router>
+          <div>
+            <nav>
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/samples">Samples</Link></li>
+                <li><Link to="/goats">Goats</Link></li>
+              </ul>
+            </nav>
+
+            {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/users">
-              <Users />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-  );
-}
-
-function Home() {
-  return (
-      <div>
-        <h2>Home</h2>
-        <div className="logoBG"><img src={require("./logo.png")} alt="Goat following farmer"/></div>
-      </div>
-
-);
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
+            <Switch>
+              <Route path="/samples"><SamplePage/></Route>
+              <Route path="/goats"><GoatPage/></Route>
+              <Route path="/"><HomePage/></Route>
+            </Switch>
+          </div>
+        </Router>
+    );
+  }
 }
 
 export default App;
