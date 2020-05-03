@@ -1,3 +1,7 @@
 div.logoBG {
   background-color: darkgreen;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
